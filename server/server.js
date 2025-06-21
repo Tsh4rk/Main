@@ -64,6 +64,7 @@ app.use('/api/blog', require('./routes/blog'));
 app.use('/api/projects', require('./routes/projects'));
 app.use('/api/certifications', require('./routes/certifications'));
 app.use('/api/terminal', require('./routes/terminal'));
+app.use('/api/content', require('./routes/content'));
 app.use('/api/admin', require('./routes/admin'));
 
 // Health check endpoint

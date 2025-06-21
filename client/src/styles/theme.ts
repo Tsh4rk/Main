@@ -225,8 +225,8 @@ export const watchDogsTheme = {
 export type Theme = typeof watchDogsTheme;
 
 // Helper functions for theme usage
-export const getColor = (path: string) => {
-  return path.split('.').reduce((obj, key) => obj[key], watchDogsTheme.colors);
+export const getColor = (path: string): any => {
+  return path.split('.').reduce((obj: any, key: string) => obj[key], watchDogsTheme.colors);
 };
 
 export const getSpacing = (size: keyof typeof watchDogsTheme.spacing) => {

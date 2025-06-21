@@ -4,22 +4,27 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
 
 // Components
-import Navigation from './components/Navigation/Navigation.tsx';
-import Loading from './components/Loading/Loading.tsx';
-import MatrixRain from './components/Effects/MatrixRain.tsx';
-import GlitchEffect from './components/Effects/GlitchEffect.tsx';
+import Navigation from './components/Navigation/Navigation';
+import Loading from './components/Loading/Loading';
+import MatrixRain from './components/Effects/MatrixRain';
+import GlitchEffect from './components/Effects/GlitchEffect';
 
 // Pages
-import Home from './pages/Home/Home.tsx';
-import About from './pages/About/About.tsx';
-import Skills from './pages/Skills/Skills.tsx';
-import Projects from './pages/Projects/Projects.tsx';
-import Blog from './pages/Blog/Blog.tsx';
-import Terminal from './pages/Terminal/Terminal.tsx';
-import Contact from './pages/Contact/Contact.tsx';
+import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import Skills from './pages/Skills/Skills';
+import Projects from './pages/Projects/Projects';
+import Blog from './pages/Blog/Blog';
+import Terminal from './pages/Terminal/Terminal';
+import Contact from './pages/Contact/Contact';
+
+// Admin Pages
+import AdminLogin from './pages/Admin/Login';
+import AdminDashboard from './pages/Admin/Dashboard';
+import ContentManager from './pages/Admin/ContentManager';
 
 // Theme
-import { watchDogsTheme } from './styles/theme.ts';
+import { watchDogsTheme } from './styles/theme';
 
 // Global Styles
 const GlobalStyle = createGlobalStyle`
@@ -259,6 +264,11 @@ const App: React.FC = () => {
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/terminal" element={<Terminal />} />
                     <Route path="/contact" element={<Contact />} />
+                    
+                    {/* Admin Routes */}
+                    <Route path="/admin/login" element={<AdminLogin />} />
+                    <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                    <Route path="/admin/content" element={<ContentManager />} />
                   </Routes>
                 </MainContent>
 

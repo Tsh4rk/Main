@@ -380,8 +380,9 @@ Status: ACTIVE
 
         if (args.length > 0) {
           const category = args[0].toLowerCase();
-          if (skillCategories[category]) {
-            return `${category.toUpperCase()} SKILLS:\n\n${skillCategories[category].map(skill => `  ✓ ${skill}`).join('\n')}`;
+          if (category in skillCategories) {
+            const categoryKey = category as keyof typeof skillCategories;
+            return `${category.toUpperCase()} SKILLS:\n\n${skillCategories[categoryKey].map((skill: string) => `  ✓ ${skill}`).join('\n')}`;
           }
           return `Unknown category '${category}'. Available: ${Object.keys(skillCategories).join(', ')}`;
         }
@@ -599,7 +600,7 @@ This is for educational demonstration only.`;
               addLine('output', output);
             }
           } catch (error) {
-            addLine('error', `Error executing command: ${error.message}`);
+            addLine('error', `Error executing command: ${error instanceof Error ? error.message : String(error)}`);
           }
         } else {
           addLine('error', `Command not found: ${cmd}. Type 'help' for available commands.`);
