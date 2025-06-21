@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#78DBE2" />
+    <meta name="description" content="Cybersecurity Portfolio - Advanced penetration testing, red team operations, and security research expertise" />
+    <meta name="keywords" content="cybersecurity, penetration testing, red team, blue team, security, hacking, portfolio" />
+    <meta name="author" content="Cybersecurity Expert" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cybersec-portfolio.com/" />
+    <meta property="og:title" content="Cybersecurity Portfolio - Security Expert" />
+    <meta property="og:description" content="Advanced cybersecurity professional specializing in penetration testing, red team operations, and security research." />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://cybersec-portfolio.com/" />
+    <meta property="twitter:title" content="Cybersecurity Portfolio - Security Expert" />
+    <meta property="twitter:description" content="Advanced cybersecurity professional specializing in penetration testing, red team operations, and security research." />
+    <meta property="twitter:image" content="%PUBLIC_URL%/og-image.png" />
+    
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Security headers via meta tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <title>CyberSec Portfolio - Terminal Interface</title>
+    
+    <style>
+      /* Critical CSS for initial load */
+      body {
+        margin: 0;
+        font-family: 'JetBrains Mono', monospace;
+        background: #0A0A0A;
+        color: #E8E8E8;
+        overflow-x: hidden;
+      }
+      
+      /* Loading animation */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0A0A0A;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      
+      .loading-text {
+        color: #78DBE2;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        animation: pulse 2s infinite;
+      }
+      
+      .loading-bar {
+        width: 300px;
+        height: 4px;
+        background: #1A1A1A;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      
+      .loading-progress {
+        height: 100%;
+        background: linear-gradient(90deg, #78DBE2, #4A90E2);
+        width: 0%;
+        animation: loading 3s ease-in-out;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.6; }
+      }
+      
+      @keyframes loading {
+        0% { width: 0%; }
+        100% { width: 100%; }
+      }
+      
+      /* Hide scrollbar during loading */
+      .loading-active {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div style="text-align: center; padding: 2rem; background: #0A0A0A; color: #E8E8E8;">
+        <h1>🔒 JavaScript Required</h1>
+        <p>This cybersecurity portfolio requires JavaScript to run the interactive terminal and security demonstrations.</p>
+        <p>Please enable JavaScript in your browser to access the full experience.</p>
+      </div>
+    </noscript>
+    
+    <!-- Loading screen -->
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-text">🔒 Initializing Secure Connection...</div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script>
+      // Remove loading screen when React app loads
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loading-active');
+        
+        setTimeout(function() {
+          const loadingScreen = document.getElementById('loading-screen');
+          if (loadingScreen) {
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.transition = 'opacity 0.5s ease';
+            setTimeout(function() {
+              loadingScreen.style.display = 'none';
+              document.body.classList.remove('loading-active');
+            }, 500);
+          }
+        }, 3000);
+      });
+      
+      // Basic security measures
+      (function() {
+        // Disable right-click context menu (can be bypassed but deters casual users)
+        document.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+          console.log('🔒 Security: Context menu disabled');
+          return false;
+        });
+        
+        // Disable common developer shortcuts
+        document.addEventListener('keydown', function(e) {
+          // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+          if (e.keyCode === 123 || 
+              (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+              (e.ctrlKey && e.keyCode === 85)) {
+            e.preventDefault();
+            console.log('🔒 Security: Developer tools access attempt blocked');
+            return false;
+          }
+        });
+        
+        // Console warning
+        console.log('%c🔒 SECURITY WARNING', 'color: #ff0000; font-size: 20px; font-weight: bold;');
+        console.log('%cThis is a cybersecurity portfolio. Unauthorized access attempts are logged.', 'color: #ffff00; font-size: 14px;');
+        console.log('%cIf you\'re a security researcher, welcome! Check out the terminal interface.', 'color: #00ff00; font-size: 12px;');
+      })();
+    </script>
+  </body>
+</html>

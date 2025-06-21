@@ -1,0 +1,39 @@
+{
+  "name": "cybersec-portfolio",
+  "version": "1.0.0",
+  "description": "Interactive cybersecurity portfolio with Watch Dogs 2 theme",
+  "main": "server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server/server.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "start": "node server/server.js",
+    "install-all": "npm install && cd client && npm install"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "mongoose": "^7.4.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.1",
+    "dotenv": "^16.3.1",
+    "multer": "^1.4.5-lts.1",
+    "express-rate-limit": "^6.8.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "concurrently": "^8.2.0"
+  },
+  "keywords": [
+    "cybersecurity",
+    "portfolio",
+    "hacking",
+    "watch-dogs",
+    "terminal"
+  ],
+  "author": "Cybersecurity Expert",
+  "license": "MIT"
+}
