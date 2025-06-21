@@ -1,6 +1,6 @@
-# 🔒 Cybersecurity Portfolio - Watch Dogs 2 Theme
+# 🔒 Cybersecurity Portfolio 
 
-A fully interactive cybersecurity portfolio website with Watch Dogs 2 visual aesthetics, featuring a simulated terminal interface, security project showcases, and advanced animations.
+A fully interactive cybersecurity portfolio website with visual aesthetics, featuring a simulated terminal interface, security project showcases, and advanced animations.
 
 ![Portfolio Preview](./docs/preview.png)
 
@@ -306,7 +306,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Watch Dogs 2** by Ubisoft for visual inspiration
 - **JetBrains Mono** and **Orbitron** fonts
 - **React** and **Node.js** communities
 - **Cybersecurity community** for methodologies and best practices
