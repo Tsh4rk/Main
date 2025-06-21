@@ -215,8 +215,8 @@ const Terminal: React.FC = () => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [suggestionIndex, setSuggestionIndex] = useState(-1);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [currentDirectory, setCurrentDirectory] = useState('~');
-  const [isOnline, setIsOnline] = useState(true);
+  const [currentDirectory] = useState('~');
+  const [isOnline] = useState(true);
   const [cursorVisible, setCursorVisible] = useState(true);
   
   const inputRef = useRef<HTMLInputElement>(null);
@@ -243,6 +243,18 @@ const Terminal: React.FC = () => {
       inputRef.current.focus();
     }
   }, []);
+
+  const addLine = useCallback((type: TerminalLine['type'], content: string) => {
+    const newLine: TerminalLine = {
+      id: Date.now().toString() + Math.random(),
+      type,
+      content,
+      timestamp: new Date(),
+      directory: currentDirectory
+    };
+    
+    setLines(prev => [...prev, newLine]);
+  }, [currentDirectory]);
 
   // System initialization
   useEffect(() => {
@@ -272,19 +284,7 @@ const Terminal: React.FC = () => {
       }, delay);
       delay += 200;
     });
-  }, []);
-
-  const addLine = useCallback((type: TerminalLine['type'], content: string) => {
-    const newLine: TerminalLine = {
-      id: Date.now().toString() + Math.random(),
-      type,
-      content,
-      timestamp: new Date(),
-      directory: currentDirectory
-    };
-    
-    setLines(prev => [...prev, newLine]);
-  }, [currentDirectory]);
+  }, [addLine]);
 
   // Commands definition
   const commands: Record<string, Command> = {
