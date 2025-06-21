@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -212,7 +212,7 @@ const ContentManager: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  const fetchContent = async () => {
+  const fetchContent = useCallback(async () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get('/api/admin/content', {
@@ -230,7 +230,7 @@ const ContentManager: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [navigate]);
 
   useEffect(() => {
     fetchContent();
