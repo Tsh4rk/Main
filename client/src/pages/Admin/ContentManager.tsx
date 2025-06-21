@@ -234,7 +234,7 @@ const ContentManager: React.FC = () => {
 
   useEffect(() => {
     fetchContent();
-  }, []);
+  }, [fetchContent]);
 
   const handleDelete = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this content?')) {
